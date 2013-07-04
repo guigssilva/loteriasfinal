@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets" 
+	xmlns:plcf="http://www.powerlogic.com.br/plcf" 
+	xmlns:tr="http://myfaces.apache.org/trinidad" 
+	xmlns:trh="http://myfaces.apache.org/trinidad/html">  
+	<ui:composition template="/fcls/template/PlcGeralTemplate.xhtml"> 
+		<ui:define name="plc-corpo-formulario"> 
+			<div id="plc-form-basico"> 
+				<div id="#{plcAliasPrefixoAction}Arg" class="plc-form-basico-topo"> 
+					<plcf:tabela tituloChave="selecao.argumento.titulo"> 
+						<plcf:linha> 
+							<plcf:celula> 
+								<plcf:titulo tituloChave="label.qtdJogos"/>  
+								<plcf:numerico id="id" value="#{plcAction.qtdJogosGerado}" ajudaChave="ajuda.id" tamanho="5"/> 
+							</plcf:celula> 
+						</plcf:linha> 
+					</plcf:tabela> 
+				</div>
+				<div id="#{plcAliasPrefixoAction}Sel" class="plc-form-basico-sel">
+					<fieldset class="plc-fieldset"> 
+						<legend class="plc-fieldset-legend">#{msg['megasena.titulo']}</legend>  
+						<plcf:iteracao var="item" value="#{entityListPlc.itensPlc}" styleClass="plc-table-tabsel delimitador tabelaFormulario plc-table-seljsf" columnClasses="celulaFormulario" headerClass="celulaFormulario"> 
+							<h:column> 
+								<f:facet name="header"> 
+									<span class="plc-title af_outputLabel"> 
+										<plcf:titulo tituloChave="label.nrResultado1">nrResultado1</plcf:titulo> 
+									</span> 
+								</f:facet>  
+								<plcf:exibe value="#{item.nrResultado1}">nrResultado1</plcf:exibe> 
+							</h:column>  
+							<h:column> 
+								<f:facet name="header"> 
+									<span class="plc-title af_outputLabel"> 
+										<plcf:titulo tituloChave="label.nrResultado2">nrResultado2</plcf:titulo> 
+									</span> 
+								</f:facet>  
+								<plcf:exibe value="#{item.nrResultado2}">nrResultado2</plcf:exibe> 
+							</h:column>  
+							<h:column> 
+								<f:facet name="header"> 
+									<span class="plc-title af_outputLabel"> 
+										<plcf:titulo tituloChave="label.nrResultado3">nrResultado3</plcf:titulo> 
+									</span> 
+								</f:facet>  
+								<plcf:exibe value="#{item.nrResultado3}">nrResultado3</plcf:exibe> 
+							</h:column>  
+							<h:column> 
+								<f:facet name="header"> 
+									<span class="plc-title af_outputLabel"> 
+										<plcf:titulo tituloChave="label.nrResultado4">nrResultado4</plcf:titulo> 
+									</span> 
+								</f:facet>  
+								<plcf:exibe value="#{item.nrResultado4}">nrResultado4</plcf:exibe> 
+							</h:column>  
+							<h:column> 
+								<f:facet name="header"> 
+									<span class="plc-title af_outputLabel"> 
+										<plcf:titulo tituloChave="label.nrResultado5">nrResultado5</plcf:titulo> 
+									</span> 
+								</f:facet>  
+								<plcf:exibe value="#{item.nrResultado5}">nrResultado5</plcf:exibe> 
+							</h:column>  
+							<h:column> 
+								<f:facet name="header"> 
+									<span class="plc-title af_outputLabel"> 
+										<plcf:titulo tituloChave="label.nrResultado6">nrResultado6</plcf:titulo> 
+									</span> 
+								</f:facet>  
+								<plcf:exibe value="#{item.nrResultado6}">nrResultado6</plcf:exibe> 
+							</h:column> 
+						</plcf:iteracao> 
+					</fieldset>  
+					 <script>createLineSelection('#{request.contextPath}/f/n/megasena');</script> 
+				 </div>
+			</div> 
+		</ui:define> 
+	</ui:composition> 
+</html>
