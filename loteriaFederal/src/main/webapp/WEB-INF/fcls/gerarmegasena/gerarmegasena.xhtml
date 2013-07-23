@@ -16,7 +16,15 @@
 						<plcf:linha> 
 							<plcf:celula> 
 								<plcf:titulo tituloChave="label.qtdJogos"/>  
-								<plcf:numerico id="id" value="#{plcAction.qtdJogosGerado}" ajudaChave="ajuda.id" tamanho="5"/>
+								<plcf:numerico id="id" value="#{plcAction.qtdJogosGerado}" ajudaChave="ajuda.id" numCasas="0" tamanho="5"/>
+							</plcf:celula>
+							<plcf:celula>
+								<plcf:titulo titulo="Último Concurso da MEGA SENA"/>
+								<plcf:exibe value="#{plcAction.nrUltiConcurso}"/>
+							</plcf:celula> 
+							<plcf:celula>
+								<plcf:titulo titulo="Último Resultado da MEGA SENA"/>
+								<plcf:exibe value="#{plcAction.nrUltiResultado}"/>
 							</plcf:celula> 
 						</plcf:linha> 
 					</plcf:tabela> 
