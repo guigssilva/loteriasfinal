@@ -2,9 +2,9 @@
  ********************** Configurações default para toda a empresa *************************
  *******************************************************************************************/
 			
-@PlcConfigCompany(name = "Powerlogic SA", domain = "www.powerlogic.com.br", acronym = "PLC", 
-			logo = "/recursos/midia/login-logo-empresa.png", address = "Av. Barão Homem de Melo, 4.554 / 2Âº andar. CEP:30.494-270, Estoril - Belo Horizonte/MG",
-			supportEmail = "suporte@powerlogic.com.br",supportPhone = "55 31 3555-0050")
+@PlcConfigCompany(name = "Informa Informática Consultoria LTDA", domain = "http://www.informasistemas.com.br/", acronym = "INF", 
+			logo = "/recursos/midia/login-logo-empresa.png", address = "Rua. Rooselvet de Oliveira, 345 / 2Âº andar Sala 16. CEP:38.400-610, Centro - Uberlândia/MG",
+			supportEmail = "informa@informasistemas.com.br",supportPhone = "55 34 3235-9233")
 			
 @PlcConfigLookAndFeel(skin = "itunes", layout = "sistema")
 			    	 
