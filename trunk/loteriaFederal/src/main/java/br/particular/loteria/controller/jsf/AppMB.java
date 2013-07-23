@@ -21,4 +21,35 @@ public class AppMB extends PlcBaseMB {
 	@Inject
 	protected transient Logger log;
 	
+	private Long qtdJogosGerado;
+	
+	private String nrUltiConcurso;
+	
+	private String nrUltiResultado;
+	
+	public String getNrUltiConcurso() {
+		return nrUltiConcurso;
+	}
+
+	public void setNrUltiConcurso(String nrUltiConcurso) {
+		this.nrUltiConcurso = nrUltiConcurso;
+	}
+
+	public String getNrUltiResultado() {
+		return nrUltiResultado;
+	}
+
+	public void setNrUltiResultado(String nrUltiResultado) {
+		this.nrUltiResultado = nrUltiResultado;
+	}
+	
+	public Long getQtdJogosGerado() {
+		return qtdJogosGerado;
+	}
+
+	public void setQtdJogosGerado(Long qtdJogosGerado) {
+		this.qtdJogosGerado = qtdJogosGerado;
+	}
+
+	
 }
