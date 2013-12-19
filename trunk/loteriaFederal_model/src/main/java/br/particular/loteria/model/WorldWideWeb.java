@@ -22,13 +22,17 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.net.Authenticator;
+import java.net.CookieHandler;
+import java.net.CookieManager;
+import java.net.CookiePolicy;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.util.Map;
-
 
 final public class WorldWideWeb {
 	private static ProxyConfig proxy = null;
@@ -53,9 +57,9 @@ final public class WorldWideWeb {
 
 			return new DataInputStream(conn.getInputStream());
 		} catch (MalformedURLException e) {
-			throw new AnaException(e);
+			throw new GuilhermeException(e);
 		} catch (IOException e) {
-			throw new AnaException(e);
+			throw new GuilhermeException(e);
 		}
 	}
 
@@ -88,9 +92,9 @@ final public class WorldWideWeb {
 			rd.close();
 			return resultado.toString();
 		} catch (MalformedURLException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		} catch (IOException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		}
 	}
 
@@ -122,9 +126,9 @@ final public class WorldWideWeb {
 			rd.close();
 			return resultado.toString();
 		} catch (MalformedURLException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		} catch (IOException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		}
 	}
 
@@ -161,9 +165,9 @@ final public class WorldWideWeb {
 			rd.close();
 			return resultado.toString();
 		} catch (MalformedURLException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		} catch (IOException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		}
 	}
 
@@ -220,9 +224,9 @@ final public class WorldWideWeb {
 			rd.close();
 			return resultado.toString();
 		} catch (MalformedURLException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		} catch (IOException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		}
 	}
 	
@@ -265,9 +269,40 @@ final public class WorldWideWeb {
 			rd.close();
 			return resultado.toString();
 		} catch (MalformedURLException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		} catch (IOException e) {
-			throw new AnaException("Não foi possível obter contato com o site " + u, e);
+			throw new GuilhermeException("Não foi possível obter contato com o site " + u, e);
 		}
 	}
+
+	public static String obterConteudoSiteByGui(String urlName, String string) {
+
+		try {
+			 
+	         URL url = new URL(urlName);
+	         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+	         BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+	 
+	         String line = null;
+	         StringBuilder resultado = new StringBuilder();
+	         while( (line = in.readLine()) != null ){
+	        	 resultado.append(line);
+	         }
+	 
+	         in.close();
+	         urlConnection.disconnect();
+	         
+	         return resultado.toString();
+	         
+	      } catch (MalformedURLException e){
+	    	  throw new GuilhermeException("Erro ao criar URL. Formato inválido."+ urlName, e);
+	      } catch (IOException e2) {
+	    	  throw new GuilhermeException("Erro ao acessar URL. " + urlName, e2);
+	         
+	      }
+	 
+	 }
 }
+
+
+
